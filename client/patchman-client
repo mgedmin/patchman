@@ -604,7 +604,8 @@ get_repos() {
                     suffix="/dists/${suite_component}/binary-${arch}"
                     ;;
             esac
-            local urls=("${baseurls[@]/%/${suffix}}")
+            local urls=("${baseurls[@]/%\//}")
+            local urls=("${urls[@]/%/${suffix}}")
             local title="${osname} ${shortversion}"
             case "$arch" in
                 all|Packages|"")
